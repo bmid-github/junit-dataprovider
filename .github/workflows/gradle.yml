@@ -30,14 +30,5 @@ jobs:
         arguments: build
     - name: Unit tests
         ./gradlew clean test
-        mkdir -p junit-reports
-        find . -name "TEST-*.xml" -exec cp {} junit-reports/ \;
     - name: Integration tests
-      run: .gradlew integTests
-
-        
-    - name: Upload JUnit test reports
-      uses: actions/upload-artifact@v2
-      with:
-        name: junit-reports
-        path: junit-reports
+      run: /.gradlew integTests
